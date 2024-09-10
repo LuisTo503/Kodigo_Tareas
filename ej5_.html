@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tienda de Coches</title>
+</head>
+<body>
+    <h1>Tienda de Coches</h1>
+    
+    <label for="coche">Selecciona un coche:</label>
+    <select id="coche">
+        <option value="fiesta">FORD FIESTA</option>
+        <option value="focus">FORD FOCUS</option>
+        <option value="escape">FORD ESCAPE</option>
+    </select>
+
+    <button onclick="calcularDescuento()">Calcular Descuento</button>
+    
+    <h2>Resultado:</h2>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularDescuento() {
+            // Obtenemos el coche seleccionado por el usuario
+            let cocheSeleccionado = document.getElementById("coche").value;
+            let descuento = 0; // Inicializamos el descuento
+            let nombreCoche = ""; // Inicializamos el nombre del coche
+
+            // Determinamos el descuento según el coche seleccionado
+            if (cocheSeleccionado === "fiesta") {
+                descuento = 5;
+                nombreCoche = "FORD FIESTA";
+            } else if (cocheSeleccionado === "focus") {
+                descuento = 10;
+                nombreCoche = "FORD FOCUS";
+            } else if (cocheSeleccionado === "escape") {
+                descuento = 20;
+                nombreCoche = "FORD ESCAPE";
+            }
+
+            // Verificamos si se seleccionó un coche válido
+            if (nombreCoche !== "") {
+                // Mostramos el resultado en el HTML
+                document.getElementById("resultado").innerHTML = 
+                "El coche seleccionado es: " + nombreCoche + "<br> El descuento aplicado es del: " + descuento + "%";
+            } else {
+                document.getElementById("resultado").innerHTML = "Por favor, selecciona un coche válido.";
+            }
+        }
+    </script>
+</body>
+</html>

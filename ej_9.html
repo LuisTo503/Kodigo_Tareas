@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversión de Temperatura</title>
+</head>
+<body>
+    <h1>Conversión de Temperatura</h1>
+    
+    <label for="tempCelsius">Ingrese la temperatura en Celsius:</label>
+    <input type="number" id="tempCelsius" />
+    <button onclick="convertirTemperatura()">Convertir</button>
+    
+    <h2>Resultado:</h2>
+    <p id="resultado"></p>
+
+    <script>
+        function convertirTemperatura() {
+            // Obtener la temperatura en Celsius ingresada por el usuario
+            let tempCelsius = parseFloat(document.getElementById("tempCelsius").value);
+            
+            // Convertir la temperatura a Fahrenheit
+            let tempFahrenheit = (tempCelsius * 9/5) + 32;
+
+            // Clasificar la temperatura en Fahrenheit
+            let mensaje;
+            if (tempFahrenheit >= 14 && tempFahrenheit <= 32) {
+                mensaje = "Temperatura baja";
+            } else if (tempFahrenheit > 32 && tempFahrenheit <= 68) {
+                mensaje = "Temperatura adecuada";
+            } else if (tempFahrenheit > 68 && tempFahrenheit <= 96) {
+                mensaje = "Temperatura alta";
+            } else {
+                mensaje = "Temperatura desconocida";
+            }
+
+            // Mostrar el resultado en el HTML
+            document.getElementById("resultado").textContent = 
+                `Temperatura en Fahrenheit: ${tempFahrenheit.toFixed(2)}°F\n` +
+                mensaje;
+        }
+    </script>
+</body>
+</html>
